@@ -1,0 +1,20 @@
+{
+
+    "manifest_version": 2,
+    "name": "Enhanced QIS",
+    "version": "0.1",
+  
+    "description": "Multiple enhancements for QIS.",
+  
+    "icons": {
+      "48": "icons/icon48.png"
+    },
+  
+    "content_scripts": [
+      {
+        "matches": ["*://qis.hochschule-trier.de/*"],
+        "js": ["index.js"]
+      }
+    ]
+  
+  }
