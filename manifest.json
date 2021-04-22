@@ -4,7 +4,7 @@
     "name": "Enhanced QIS",
     "version": "0.2",
   
-    "description": "Multiple enhancements for QIS.",
+    "description": "Enhancements for QIS grades portal. This currently only works for Hochschule Trier on page qis.hochschule-trier.de. Current Features: - Enhancement of the grades overview",
   
     "icons": {
       "48": "icons/icon.svg",
