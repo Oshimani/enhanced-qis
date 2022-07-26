@@ -8,6 +8,7 @@
 // consts
 const URL_PARAM_KEY_STATE = "state";
 const URL_PARAM_VALUE_NOTEN_UEBERSICHT = "notenspiegelStudent";
+const URL_PARAM_VALUE_PRUEFUNGS_ANMELDUNG = "prfAnmStudent";
 
 // run
 const urlParams = new URLSearchParams(location.search);
@@ -19,12 +20,14 @@ switch (state) {
     case URL_PARAM_VALUE_NOTEN_UEBERSICHT:
         initNotenUebersicht();
         break;
+    case URL_PARAM_VALUE_PRUEFUNGS_ANMELDUNG:
+        initPruefungsAnmeldung();
+        break;
     /**
      * insert other states here if functions on other pages are implemented
      */
     default:
         console.log("[Enhanced QIS] could not identify site. No modifications.");
-
 }
 
 
@@ -41,7 +44,6 @@ function initNotenUebersicht() {
         }
     });
     noteCell.innerText += ` (${avgGrade.toFixed(2)})`;
-
 }
 
 function getTableRows() {
@@ -122,4 +124,18 @@ function formatTableCells(tableRows) {
             row.remove();
         }
     });
+}
+
+function initPruefungsAnmeldung() {
+    setIndicatorsForCompletedCourses();
+}
+
+function setIndicatorsForCompletedCourses() {
+    document.querySelectorAll("ul li.treelist a.Konto")
+        .forEach(e => {
+            if (e.innerText.includes("[Status: BE]")) {
+                e.style.color = "rgb(0, 151, 0)";
+                // e.innerText += " ✔️";
+            }
+        });
 }
